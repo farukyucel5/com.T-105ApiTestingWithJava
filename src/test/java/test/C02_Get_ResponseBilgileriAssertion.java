@@ -24,7 +24,7 @@ public class C02_Get_ResponseBilgileriAssertion {
 
         // 1 - Gerekli olan URL ve Body hazirla
 
-        String url = "https://restful-booker.herokuapp.com/booking/413";
+        String url = "https://restful-booker.herokuapp.com/booking/8989";
 
         // 2 - Soruda isteniyorsa Expected Data hazirla
 

@@ -19,6 +19,7 @@ public class C04_Put_ResponseBilgileriAssertion {
                 "id":70
                 }
         donen Response’un,
+
             status code’unun 200,
             ve content type’inin application/json; charset=utf-8,
             ve Server isimli Header’in degerinin cloudflare,
@@ -42,7 +43,7 @@ public class C04_Put_ResponseBilgileriAssertion {
          */
         JSONObject reqBody = new JSONObject();
 
-        reqBody.put("title","Faruk");
+        reqBody.put("title","Ahmet");
         reqBody.put("body","Merhaba");
         reqBody.put("userId",10);
         reqBody.put("id",70);
@@ -71,3 +72,6 @@ public class C04_Put_ResponseBilgileriAssertion {
                 statusLine("HTTP/1.1 200 OK");
     }
 }
+    
+
+

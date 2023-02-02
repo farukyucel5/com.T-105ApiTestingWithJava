@@ -1,15 +1,17 @@
 package test;
 
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.equalTo;
 
 public class C09_Post_JsonPathIleBodyTesti {
-     /*
+    /*
             https://restful-booker.herokuapp.com/booking
              url’ine asagidaki body'ye sahip
             bir POST request gonderdigimizde
@@ -66,8 +68,8 @@ public class C09_Post_JsonPathIleBodyTesti {
 
         JSONObject reqBody = new JSONObject();
 
-        reqBody.put("firstname" , "faruk");
-        reqBody.put("lastname" , "yucel");
+        reqBody.put("firstname" , "Ali");
+        reqBody.put("lastname" , "Bak");
         reqBody.put("totalprice" , 500);
         reqBody.put("depositpaid" , false);
         reqBody.put("bookingdates" ,innerBody);
@@ -78,10 +80,10 @@ public class C09_Post_JsonPathIleBodyTesti {
         // 3 - Response'i kaydet
 
         Response response = given().
-                contentType(ContentType.JSON).
-                when().
-                body(reqBody.toString()).
-                post(url);
+                                    contentType(ContentType.JSON).
+                            when().
+                                    body(reqBody.toString()).
+                                    post(url);
         response.prettyPrint();
         // 4 - Assertion
 
@@ -90,8 +92,8 @@ public class C09_Post_JsonPathIleBodyTesti {
                 assertThat().
                 statusCode(200).
                 contentType(ContentType.JSON).
-                body("booking.firstname", equalTo("faruk"),
-                        "booking.lastname",equalTo("yucel"),
+                body("booking.firstname", equalTo("Ali"),
+                        "booking.lastname",equalTo("Bak"),
                         "booking.totalprice",equalTo(500),
                         "booking.depositpaid",equalTo(false),
                         "booking.bookingdates.checkin",equalTo("2021-06-01"),

@@ -8,14 +8,12 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class C11_Get_ExpectedDataCreation {
-
-
-
+public class C11_Get_ExpectedDataOlusturma {
     /*
     https://jsonplaceholder.typicode.com/posts/22 url'ine
     bir GET request yolladigimizda donen response body’sinin
     asagida verilen ile ayni oldugunu test ediniz
+
    Response body :
     {
     "userId":3,
@@ -63,4 +61,5 @@ public class C11_Get_ExpectedDataCreation {
         Assert.assertEquals(expBody.get("body"),resJsonPath.getString("body"));
 
     }
+
 }

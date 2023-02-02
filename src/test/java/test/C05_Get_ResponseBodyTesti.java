@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class C05_Get_ResponseBodyTest {
-
+public class C05_Get_ResponseBodyTesti {
     /*
         https://jsonplaceholder.typicode.com/posts/44 url'ine bir GET request yolladigimizda
         donen Response’in
+
              status code'unun 200,
              ve content type'inin ContentType.JSON,
              ve response body'sinde bulunan userId'nin 5,
@@ -20,6 +20,7 @@ public class C05_Get_ResponseBodyTest {
          */
     @Test
     public void get01(){
+
         // 1 - URL hazirla
 
         String url = "https://jsonplaceholder.typicode.com/posts/44";
@@ -41,5 +42,6 @@ public class C05_Get_ResponseBodyTest {
                 contentType(ContentType.JSON).
                 body("userId", Matchers.equalTo(5)).
                 body("title",Matchers.equalTo("optio dolor molestias sit"));
+
     }
 }

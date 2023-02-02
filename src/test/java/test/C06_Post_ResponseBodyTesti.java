@@ -7,19 +7,21 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.Matchers.lessThan;
+import static org.hamcrest.Matchers.*;
 
-public class C06_Post_ResponseBodyTest {
+
+public class C06_Post_ResponseBodyTesti {
      /*  https://jsonplaceholder.typicode.com/posts
          url’ine asagidaki body ile bir POST request gonderdigimizde
+
         {
         "title":"API",
         "body":"API ogrenmek ne guzel",
         "userId":10,
         }
+
         donen Response’un,
+
         status code’unun 201,
         ve content type’inin application/json
         ve Response Body'sindeki,
@@ -49,10 +51,10 @@ public class C06_Post_ResponseBodyTest {
         // 3 - Response'i kaydet
 
         Response response = given().
-                contentType(ContentType.JSON).
-                when().
-                body(reqBody.toString()).
-                post(url);
+                                    contentType(ContentType.JSON).
+                            when().
+                                    body(reqBody.toString()).
+                                    post(url);
 
         response.prettyPrint();
 
@@ -65,7 +67,7 @@ public class C06_Post_ResponseBodyTest {
                 contentType("application/json").
                 body("title", equalTo("API")).
                 body("userId",lessThan(100)).
-                body("body", Matchers.containsString("API"));
+                body("body",Matchers.containsString("API"));
 
     }
 
@@ -100,8 +102,8 @@ public class C06_Post_ResponseBodyTest {
                 statusCode(201).
                 contentType("application/json").
                 body("title", equalTo("API"),
-                        "userId", lessThan(100),
-                        "body", containsString("API"));
+                "userId", lessThan(100),
+                "body", containsString("API"));
 
     }
 }

@@ -3,16 +3,17 @@ package test;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
-import org.junit.Test;
+import org.junit.Assert;
+import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 
 public class C13_Get_SoftAssertIleExpectedDataTesti {
-
     /*
     http://dummy.restapiexample.com/api/v1/employee/3 url’ine bir GET request
     gonderdigimizde donen response’un asagidaki gibi oldugunu test edin.
+
         Response Body
         {
         "status":"success",

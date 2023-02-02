@@ -1,14 +1,16 @@
 package test;
 
-import baseUrl.JsonPlaceHolderBaseUrl;
+import baseURL.JsonPlaceHolderBaseUrl;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
 public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
+
     //Class icinde 3 Test metodu olusturun ve asagidaki testleri yapin
 
     /*
@@ -44,9 +46,9 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
         // 3 - Response'i kaydet
 
         Response response = given().
-                spec(specJsonPlace).
-                when().
-                get("/{pp1}");
+                                    spec(specJsonPlace).
+                            when().
+                                    get("/{pp1}");
 
         // 4 - Assertion
 
@@ -74,9 +76,9 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
         // 3 - Response'i kaydet
 
         Response response = given().
-                spec(specJsonPlace).
-                when().
-                get("/{pp1}/{pp2}");
+                                    spec(specJsonPlace).
+                            when().
+                                    get("/{pp1}/{pp2}");
 
         // 4 - Assertion
 
@@ -95,5 +97,4 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
          */
 
     }
-
 }

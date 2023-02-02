@@ -4,6 +4,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -26,6 +27,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
     	                                  },
     	                "additionalneeds" : "wi-fi"
     	            }
+
+
     	            	Response Body
     	           {
                     "bookingid":24,
@@ -78,10 +81,10 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         // 3 - Response'i kaydet
 
         Response response = given().
-                contentType(ContentType.JSON).
-                when().
-                body(reqBody.toString()).
-                post(url);
+                                    contentType(ContentType.JSON).
+                            when().
+                                    body(reqBody.toString()).
+                                    post(url);
 
         // System.out.println("response = ");
         // response.prettyPrint();
@@ -96,8 +99,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         assertEquals(expBody.getJSONObject("booking").get("totalprice"),resJsonPath.get("booking.totalprice"));
         assertEquals(expBody.getJSONObject("booking").get("depositpaid"),resJsonPath.get("booking.depositpaid"));
         assertEquals(expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkin"),
-                resJsonPath.get("booking.bookingdates.checkin"));
+                    resJsonPath.get("booking.bookingdates.checkin"));
         assertEquals(expBody.getJSONObject("booking").getJSONObject("bookingdates").get("checkout"),
-                resJsonPath.get("booking.bookingdates.checkout"));
+                     resJsonPath.get("booking.bookingdates.checkout"));
     }
 }

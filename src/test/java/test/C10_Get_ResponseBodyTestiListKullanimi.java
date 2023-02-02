@@ -4,12 +4,10 @@ import io.restassured.response.Response;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 
 public class C10_Get_ResponseBodyTestiListKullanimi {
-     /*
+    /*
             http://dummy.restapiexample.com/api/v1/employees url'ine bir GET request yolladigimizda
             donen Response'in
             status code'unun 200,
@@ -33,7 +31,6 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
         // 3 - Response'i kaydet
 
         Response response = given().when().get(url);
-        response.prettyPrint();
 
         // 4 - Assertion
 
