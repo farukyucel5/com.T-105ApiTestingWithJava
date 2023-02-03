@@ -1,9 +1,15 @@
 package test;
 
 import baseURL.JsonPlaceHolderBaseUrl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
+import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
@@ -96,5 +102,8 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
             response body’sinin null oldugunu test edin
          */
 
+        specJsonPlace.pathParams("pp1","posts","pp2",50);
+        Response response=given().spec(specJsonPlace).when().delete("/{pp1}/{pp2}");
+        response.then().assertThat().statusCode(200);
     }
 }

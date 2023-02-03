@@ -60,6 +60,7 @@ public class C11_Get_ExpectedDataOlusturma {
         Assert.assertEquals(expBody.get("title"),resJsonPath.getString("title"));
         Assert.assertEquals(expBody.get("body"),resJsonPath.getString("body"));
 
+
     }
 
 }
