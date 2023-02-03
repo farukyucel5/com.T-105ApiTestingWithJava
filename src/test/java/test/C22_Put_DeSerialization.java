@@ -59,9 +59,9 @@ public class C22_Put_DeSerialization extends JsonPlaceHolderBaseUrl {
         Response response = given().
                                     spec(specJsonPlace).
                                     contentType(ContentType.JSON).
-                            when().body(reqBody).put("/{pp1}/{pp2}");
-
-
+                            when().
+                                    body(reqBody).
+                                    put("/{pp1}/{pp2}");
 
         response.prettyPrint();
 
