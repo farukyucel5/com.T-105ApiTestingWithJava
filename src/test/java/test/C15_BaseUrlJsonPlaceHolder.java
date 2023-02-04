@@ -115,5 +115,6 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseUrl {
                 assertThat().
                 statusCode(200).
                 body("body",nullValue());
+
     }
 }
